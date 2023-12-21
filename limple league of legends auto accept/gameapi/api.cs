@@ -115,11 +115,11 @@ namespace limple_league_of_legends_auto_accept.gameapi
                         Match match = (Match)obj; //converto de obj para Match para ter uma unica expressão regular
                         if (!string.IsNullOrEmpty(match.Groups["port"].ToString())) // condiciono com o que preciso
                         {
-                            token = match.Groups["port"].ToString(); //armazeno o valor da porta
+                            port = match.Groups["port"].ToString(); //armazeno o valor da porta
                         }
                         else if (!string.IsNullOrEmpty(match.Groups["token"].ToString()))// condiciono com o que preciso
                         {
-                            port = match.Groups["token"].ToString();// armazeno o valor do token
+                            token = match.Groups["token"].ToString();// armazeno o valor do token
                         }
                     }
                 }

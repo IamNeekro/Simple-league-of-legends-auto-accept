@@ -10,7 +10,7 @@ public class Sac
         Sac sa = new Sac();
         sa.autoaccept();
     }
-    public void autoaccept()
+    private void autoaccept()
     {
         while (true)
         {
