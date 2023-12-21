@@ -32,7 +32,7 @@ public class Sac
                         Console.Clear();
                         Console.WriteLine("match accepted");
                         Console.ReadLine();
-                        //API.LCU.GetRequest(RestSharp.Method.POST, "/lol-matchmaking/v1/ready-check/decline");
+                        api.GetRequest(RestSharp.Method.POST, "/lol-matchmaking/v1/ready-check/decline");
                     }
                 }
 
