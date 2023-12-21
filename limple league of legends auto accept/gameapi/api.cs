@@ -55,49 +55,6 @@ namespace limple_league_of_legends_auto_accept.gameapi
             return resultado.Content;
         }
 
-        public static string GetRequest(RestSharp.Method method, string request, DataFormat data, object parameter = null)
-        {
-            ValidUX();
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            ServicePointManager.ServerCertificateValidationCallback = (RemoteCertificateValidationCallback)Delegate.Combine(ServicePointManager.ServerCertificateValidationCallback, new RemoteCertificateValidationCallback(netclass.NewClass.Main));
-            RestClient rest = new RestClient("https://127.0.0.1:" + myport)
-            {
-                Authenticator = new HttpBasicAuthenticator("riot", token)
-            };
-            RestRequest req = new RestRequest(request, method);
-            if (method == Method.PUT && data == DataFormat.Json)
-            {
-                req.AddBody(parameter);
-            }
-            else if (method == Method.POST)
-            {
-                req.AddBody(parameter);
-            }
-            var resultado = rest.Execute(req);
-            return resultado.Content;
-        }
-
-        public static string GetReqJson(RestSharp.Method method, string request, object parameter = null)
-        {
-            ValidUX();
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            ServicePointManager.ServerCertificateValidationCallback = (RemoteCertificateValidationCallback)Delegate.Combine(ServicePointManager.ServerCertificateValidationCallback, new RemoteCertificateValidationCallback(netclass.NewClass.Main));
-            RestClient rest = new RestClient("https://127.0.0.1:" + myport)
-            {
-                Authenticator = new HttpBasicAuthenticator("riot", token)
-            };
-            RestRequest req = new RestRequest(request, method, DataFormat.Json);
-            if (method == Method.PUT && DataFormat.Json == DataFormat.Json)
-            {
-                req.AddBody(parameter);
-            }
-            else if (method == Method.POST)
-            {
-                req.AddBody(parameter);
-            }
-            var resultado = rest.Execute(req);
-            return resultado.Content;
-        }
 
         static ValueTuple<string, string> GetUXTuple() 
         {
